@@ -1,14 +1,14 @@
-const express = require('express');
-var useragent = require('express-useragent');
+const express = require("express");
+var useragent = require("express-useragent");
 
 const app = express();
 app.use(useragent.express());
-const port = 3010;
-const path = require('path');
+const port = process.env.PORT || 3000;
+const path = require("path");
 
-app.use(express.static('static'));
+app.use(express.static("static"));
 
-app.get('/', async (req, res) => {
+app.get("/", async (req, res) => {
   res.send(req.useragent);
 
   // res.redirect(
